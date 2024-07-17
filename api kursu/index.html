@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kursy walut</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glowa">
+        Przelicznik kursów
+    </div>
+    <div class="zawartosc">
+        
+        <div class="lewy_twix">
+            <p>Waluta początkowa:</p>
+            <select name="poczatek" id="poczatek">
+                <option value="pln">złoty</option>
+                <option value="eur">euro</option>
+                <option value="czk">korona czeska</option>
+                <option value="usd">dolar amerykański</option>
+            </select>
+            <p>Ilość:</p>
+            <input type="number" min="0" id="ilosc_poczatek">
+        </div>
+
+        <div class="prawy_twix">
+            <p>Waluta końcowa:</p>
+            <select name="koniec" id="koniec">
+                <option value="pln">złoty</option>
+                <option value="eur">euro</option>
+                <option value="czk">korona czeska</option>
+                <option value="usd">dolar amerykański</option>
+            </select>
+            <p>Ilość:</p>
+            <p id="ilosc_koniec">0</p>
+        </div>
+
+    </div>
+
+    <div class="wyslij">
+        <button class="przycisk" id="oblicz">Oblicz</button>
+    </div>
+
+</body>
+<script>
+
+const poczatek = document.getElementById("poczatek");
+const koniec = document.getElementById("koniec");
+const oblicz = document.getElementById("oblicz");
+const ilosc_poczatek = document.getElementById("ilosc_poczatek");
+const ilosc_koniec = document.getElementById("ilosc_koniec");
+const API_URL = "http://api.nbp.pl/api/exchangerates/rates/A/"
+
+async function znajdzKurs(waluta){
+    if(waluta=="pln"){
+        return 1 
+    }
+    const request = await fetch(API_URL + waluta + "/today?format=json")
+    const data = await request.json()
+    const kurs = data.rates[0].mid
+    return parseFloat(kurs)
+} 
+
+oblicz.onclick=()=>{
+    async function przewalutowanie(){
+            const kursPoczatek = await znajdzKurs(poczatek.value)
+            const kursKoniec = await znajdzKurs(koniec.value)
+            const wynik = parseFloat(ilosc_poczatek.value)*(parseFloat(ilosc_poczatek.value)*kursPoczatek)/(parseFloat(ilosc_poczatek.value)*kursKoniec)
+            ilosc_koniec.innerText = Math.round(wynik*10000)/10000
+    }
+    przewalutowanie()
+}
+</script>
+</html>

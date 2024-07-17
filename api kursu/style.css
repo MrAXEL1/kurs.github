@@ -1,0 +1,72 @@
+body{
+    background-color: #2f3a6e;
+    color: #CFC39B;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    font-size:large;
+}
+
+.glowa{
+    height: 20vh;
+    width: 100vw;
+    font-size:xx-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.zawartosc{
+    height: 45vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    text-align: center;
+}
+
+.wyslij{
+    height: 15vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wynik{
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lewy_twix{
+    width: 50vw;
+    
+}
+
+.prawy_twix{
+    width: 50vw;
+    
+}
+
+.liczby{
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.przycisk{
+    background-color: #2f3a6e;
+    border:3px solid #CFC39B;
+    font-size:large;
+    color: #CFC39B;
+    font-weight: bold;
+}
