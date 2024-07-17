@@ -56,7 +56,7 @@ async function znajdzKurs(waluta){
     if(waluta=="pln"){
         return 1 
     }
-    const request = await fetch(API_URL + waluta + "/today?format=json")
+    const request = await fetch(API_URL + waluta + "/?format=json")
     const data = await request.json()
     const kurs = data.rates[0].mid
     return parseFloat(kurs)
