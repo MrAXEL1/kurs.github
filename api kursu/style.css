@@ -35,14 +35,16 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
-.wynik{
-    height: 10vh;
+.stopa{
+    height: 5vh;
     width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: left;
+    height: 5vh;
+    font-size: small;
+
 }
 
 .lewy_twix{
