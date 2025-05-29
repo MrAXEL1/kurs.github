@@ -71,4 +71,18 @@ body{
     font-size:large;
     color: #CFC39B;
     font-weight: bold;
+    transition-duration: 0.5s;
+    border-radius: 5px;
+}
+
+.przycisk:hover{
+    background-color: #2f3a6e;
+    border:3px solid #ffcc01;
+    font-size:large;
+    color: #ffcc01;
+}
+
+.przycisk:active{
+    transform: translateY(3px);
+    transition: none;
 }
